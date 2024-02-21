@@ -1,12 +1,10 @@
-8//VARIABLES
+//VARIABLES
 import autos from "./db.js";
 
 const results = document.querySelector('#resultado');
-
 //Selects
 const year = document.querySelector('#year');
 const selects = document.querySelectorAll('.filter');
-
 
 //Eventos
 document.addEventListener('DOMContentLoaded',()=>{
@@ -75,6 +73,7 @@ function collectData(select){
     filterCar();
 }
 
+//Filtrar autos
 function filterCar() {
     const result = autos.filter(filtrarMarca)
                             .filter(filtrarYears)
@@ -82,7 +81,7 @@ function filterCar() {
                                     .filter(filtrarPuertas)
                                         .filter(filtrarTransmision)
                                             .filter(filtrarColor);
-    
+    //arrojar alerta en caso de no hallar resultados
     if(result.length){
         showCars(result);
     } else {
